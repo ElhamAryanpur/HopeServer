@@ -2,7 +2,6 @@ package hopeserver
 
 import (
 	b64 "encoding/base64"
-	"encoding/json"
 )
 
 // Encrypt is where base64 encryption happen
@@ -17,13 +16,4 @@ func Decrypt(data string) string {
 		print((err))
 	}
 	return string(dec)
-}
-
-// ReadJSON is used to parse JSON
-func ReadJSON(data []byte, rules map[string]string) map[string]string {
-
-	results := rules
-	json.Unmarshal(data, &results)
-
-	return results
 }

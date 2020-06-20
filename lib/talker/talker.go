@@ -8,12 +8,12 @@ import (
 
 // Init is used to define service routes
 func Init(app *fiber.App) {
-	DB := db.Init("data")
-	db.Set(DB, "k", "v")
-	DB.Put([]byte("Hello"), []byte("World"))
-	val, _ := DB.Get([]byte("Hello"))
-	println(val)
-	println(db.Get(DB, "k"))
+	DB := db.New("data.db")
+	DB.Set("key", "value")
+	DB.Get("key", func (result string)  {
+		println(result)
+	})
+
 	app.Get("/service/register", func(c *fiber.Ctx) {
 		c.Send("AAAAA")
 	})
