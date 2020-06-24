@@ -9,9 +9,12 @@ import (
 
 // Init is used to define service routes
 func Init(app *fiber.App) {
-	js_engine.Init(*app)
+	js := js_engine.New(app)
+	js.Init()
 
 	app.Get("/service/register", func(c *fiber.Ctx) {
 		c.Send("AAAAA")
 	})
 }
+
+// TODO: Do Wren Engine and then Lua Engine
