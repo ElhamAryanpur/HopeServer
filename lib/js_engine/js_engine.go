@@ -1,8 +1,6 @@
 package hopeserver
 
 import (
-	"io/ioutil"
-
 	"github.com/gofiber/fiber"
 	"github.com/robertkrimen/otto"
 )
@@ -39,11 +37,9 @@ func (js *JS) GET(call otto.FunctionCall) otto.Value {
 }
 
 // Init is used to Initialize stuff
-func (js *JS) Init() {
+func (js *JS) Init(data string) {
 	js.vm.Set("GET", js.GET)
-
-	f, _ := ioutil.ReadFile("packages/test/main.js")
-	js.vm.Run(string(f))
+	js.vm.Run(data)
 }
 
 // New is used to initialize lua stuff

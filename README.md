@@ -1,4 +1,5 @@
 ![Code scanning - action](https://github.com/ElhamAryanpur/HopeServer/workflows/Code%20scanning%20-%20action/badge.svg)
+![Go](https://github.com/ElhamAryanpur/HopeServer/workflows/Go/badge.svg)
 
 # Hope Server
 
