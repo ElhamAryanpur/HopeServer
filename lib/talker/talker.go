@@ -20,9 +20,9 @@ func Init(app *fiber.App) {
 		for _, service := range compere {
 			fpd := path.Join(pkgDirectory, service["folder"])
 			fp := path.Join(fpd, service["main"])
-			println(fp)
+			dbp := path.Join(fpd, "database.db")
 			f, _ := ioutil.ReadFile(fp)
-			go js.Init(string(f))
+			go js.Init(string(f), dbp)
 		}
 	}
 }
