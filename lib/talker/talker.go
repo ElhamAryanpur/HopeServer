@@ -14,7 +14,7 @@ import (
 // Init is used to define service routes
 func Init(app *fiber.App) {
 	js := js_engine.New(app)
-	compere, pkgDirectory := loadPackages()
+	compere, pkgDirectory := LoadPackages()
 
 	if len(compere) != 0 {
 		for _, service := range compere {
@@ -27,8 +27,8 @@ func Init(app *fiber.App) {
 	}
 }
 
-// loadPackages is used to load packages from the directory and do auth
-func loadPackages() ([]map[string]string, string) {
+// LoadPackages is used to load packages from the directory and do auth
+func LoadPackages() ([]map[string]string, string) {
 	var compere []map[string]string
 	var compereFile []byte
 

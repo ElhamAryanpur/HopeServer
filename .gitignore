@@ -1,2 +1,4 @@
 data.db
 packages/*
+front/node_modules
+front/.DS_Store
