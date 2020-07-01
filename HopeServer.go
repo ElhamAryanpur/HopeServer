@@ -15,10 +15,19 @@ func main() {
 	ft.Init(app)
 	tk.Init(app)
 
+	PublicFolder, _ := os.Getwd()
+	PublicFolder = path.Join(PublicFolder, "front", "public")
+
 	app.Get("/", func(c *fiber.Ctx) {
-		indexFile, _ := os.Getwd()
-		indexFile = path.Join(indexFile, "front", "public", "index.html")
-		c.SendFile(indexFile)
+		c.SendFile(path.Join(PublicFolder, "index.html"))
+	})
+
+	app.Get("/public/:file", func(c *fiber.Ctx) {
+		c.SendFile(path.Join(PublicFolder, c.Params("file")))
+	})
+
+	app.Get("/public/build/:buildfile", func(c *fiber.Ctx) {
+		c.SendFile(path.Join(PublicFolder, "build", c.Params("buildfile")))
 	})
 
 	// Route The Public Folder
