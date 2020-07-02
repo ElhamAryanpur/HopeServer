@@ -1,0 +1,57 @@
+:root {
+    --background-color: #121920;
+    --element-background: #3C7DD9;
+    --font-color: #8DBDFF;
+}
+
+body {
+    scrollbar-color: var(--element-background) var(--background-color);
+    background-image: linear-gradient(-100deg, #121920, #3C7DD9);
+    color: var(--font-color);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--font-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--element-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3f85e6;
+}
+
+.card {
+    overflow: auto;
+    border-radius: 20px;
+    background-color: rgba(59, 125, 216, 0.2);
+}
+
+.card>tbody>tr>td {
+    opacity: 1;
+}
+
+button {
+    background: var(--font-color);
+    color: var(--element-background);
+    border: 0px solid;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 20px;
+    width: 80%;
+}
+
+button:not(:disabled):active {
+    background: var(--font-color);
+    color: var(--element-background);
+}
+
+button:hover {
+    background: var(--element-background);
+    color: var(--font-color);
+}

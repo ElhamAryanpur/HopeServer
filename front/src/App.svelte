@@ -1,43 +1,89 @@
 <script>
-  export let name;
-
-  fetch("/meta/services")
+  /*fetch("/meta/services")
     .then(res => res.json())
     .then(result => {
       console.log(result);
     })
     .catch(err => {
       console.log(`ERROR: ${err}`);
-    });
+    });*/
+
+  let username = "Elham Aryanpur";
+  let theme = localStorage.getItem("theme");
+  if (theme === null) {
+    theme = "blue";
+  }
 </script>
 
 <style>
-  main {
+  .table {
+    width: 100%;
+    height: 100vh;
     text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    border-spacing: 20px 20px;
   }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
+  .menu {
+    width: 15vw;
   }
 
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  .menu-list {
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: auto;
+  }
+
+  .menu-main {
+    height: 100%;
+    width: 100%;
+  }
+
+  .img {
+    margin-top: 15px;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
   }
 </style>
 
-<main>
-  <h1>Hello {name}!</h1>
-  <p>
-    Visit the
-    <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
-    to learn how to build Svelte apps.
-  </p>
-</main>
+<svelte:head>
+  <link rel="stylesheet" href="/themes/{theme}.css" />
+</svelte:head>
+
+<table class="table unselectable">
+  <tr>
+    <td class="card menu">
+      <table class="menu-main">
+        <tr>
+          <img class="img" src="/meta/avatar.png" alt="avatar" />
+          <br />
+          <br />
+          <div style="width: 15vw; overflow: hidden;" title={username}>
+            {username}
+          </div>
+
+        </tr>
+        <tr>
+          <div class="menu-list">
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+            <button class="box">Test1</button>
+          </div>
+        </tr>
+      </table>
+    </td>
+    <td class="card">REEE</td>
+  </tr>
+</table>

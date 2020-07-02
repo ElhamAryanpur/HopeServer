@@ -30,6 +30,10 @@ func main() {
 		c.SendFile(path.Join(PublicFolder, "build", c.Params("buildfile")))
 	})
 
+	app.Get("/public/themes/:themefile", func(c *fiber.Ctx) {
+		c.SendFile(path.Join(PublicFolder, "themes", c.Params("themefile")))
+	})
+
 	// Route The Public Folder
 
 	app.Listen(3000)
