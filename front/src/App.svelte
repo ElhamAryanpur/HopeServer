@@ -39,13 +39,6 @@
     height: 100%;
     width: 100%;
   }
-
-  .img {
-    margin-top: 15px;
-    border-radius: 100px;
-    width: 100px;
-    height: 100px;
-  }
 </style>
 
 <svelte:head>
@@ -56,15 +49,6 @@
   <tr>
     <td class="card menu">
       <table class="menu-main">
-        <tr>
-          <img class="img" src="/meta/avatar.png" alt="avatar" />
-          <br />
-          <br />
-          <div style="width: 15vw; overflow: hidden;" title={username}>
-            {username}
-          </div>
-
-        </tr>
         <tr>
           <div class="menu-list">
             <button class="box">Test1</button>

@@ -22,19 +22,21 @@ func main() {
 		c.SendFile(path.Join(PublicFolder, "index.html"))
 	})
 
-	app.Get("/public/:file", func(c *fiber.Ctx) {
+	app.Get("/:file", func(c *fiber.Ctx) {
 		c.SendFile(path.Join(PublicFolder, c.Params("file")))
 	})
 
-	app.Get("/public/build/:buildfile", func(c *fiber.Ctx) {
+	app.Get("/build/:buildfile", func(c *fiber.Ctx) {
 		c.SendFile(path.Join(PublicFolder, "build", c.Params("buildfile")))
 	})
 
-	app.Get("/public/themes/:themefile", func(c *fiber.Ctx) {
+	app.Get("/themes/:themefile", func(c *fiber.Ctx) {
 		c.SendFile(path.Join(PublicFolder, "themes", c.Params("themefile")))
 	})
 
-	// Route The Public Folder
+	app.Get("/meta/:metafile", func(c *fiber.Ctx) {
+		c.SendFile(path.Join(PublicFolder, "meta", c.Params("metafile")))
+	})
 
 	app.Listen(3000)
 }
